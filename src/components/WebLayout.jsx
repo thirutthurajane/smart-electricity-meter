@@ -4,7 +4,6 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import { CssBaseline, Divider, Paper, ThemeProvider } from '@mui/material';
 import { theme } from '@/theme';
-import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
@@ -89,7 +88,7 @@ const WebLayout = ({ children }) => {
             my: 1,
           }}
         >
-          <Typography  variant='subtitle' sx={{ color: '#8193AA', }} variant='caption' >
+          <Typography  variant='subtitle' sx={{ color: '#8193AA', }}>
             Copyright 2023. All right reserved
           </Typography>
         </Box>
