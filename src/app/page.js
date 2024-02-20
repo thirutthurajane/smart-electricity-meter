@@ -5,8 +5,11 @@ import { Fragment } from 'react';
 import Button from '@mui/material/Button';
 import { Grid } from '@mui/material';
 import Carousel from 'react-material-ui-carousel';
+import { useRouter } from 'next/navigation';
 
 export default function Home () {
+
+  const router = useRouter();
   return (
     <Grid
       sx={{
@@ -35,7 +38,7 @@ export default function Home () {
           paddingRight: 6,
           paddingTop: 2,
           paddingBottom: 2,
-        }} size='large' color='normalbutton' variant='contained'>
+        }} size='large' onClick={() => { router.push('/client') }} color='normalbutton' variant='contained'>
           เริ่มต้น
         </Button>
       </Grid>

@@ -14,13 +14,13 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Stack, useTheme } from '@mui/material';
+import { useRouter } from 'next/navigation';
 
-const pages = ['หน้าหลัก', 'แดชบอร์ด', 'แจ้งเตือน', 'โปรไฟล์'];
-const settings = ['หน้าหลัก', 'แดชบอร์ด', 'Dashboard', 'Logout'];
+const pages = [{ label: 'หน้าหลัก', route: '/' }, { label: 'แดชบอร์ด', route: '/dashboard' }, { label: 'แจ้งเตือน', route: '/notice' }, { label: 'โปรไฟล์', route: '/profile' }];
 
 function ResponsiveAppBar () {
   const [anchorElNav, setAnchorElNav] = useState();
-  const [anchorElUser, setAnchorElUser] = useState();
+  const router = useRouter();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -32,6 +32,10 @@ function ResponsiveAppBar () {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
+
+  const onMenuClick = (page) => {
+    router.push(page.route);
+  }
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
@@ -98,8 +102,8 @@ function ResponsiveAppBar () {
                   }}
                 >
                   {pages.map((page) => (
-                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                      <Typography textAlign='center'>{page}</Typography>
+                    <MenuItem key={page.label} onClick={() => onMenuClick(page)}>
+                      <Typography textAlign='center'>{page.label}</Typography>
                     </MenuItem>
                   ))}
                 </Menu>
@@ -126,11 +130,11 @@ function ResponsiveAppBar () {
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 {pages.map((page) => (
                   <Button
-                    key={page}
-                    onClick={handleCloseNavMenu}
+                    key={page.label}
+                    onClick={() => onMenuClick(page)}
                     sx={{ my: 2, color: 'white', display: 'block' }}
                   >
-                    {page}
+                    {page.label}
                   </Button>
                 ))}
               </Box>
