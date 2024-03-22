@@ -26,7 +26,7 @@ const Page = () => {
           paddingRight: 6,
           paddingTop: 2,
           paddingBottom: 2,
-        }} size='large' onClick={() => { router.push('/admin/meter') }} endIcon={<ArrowRightAltIcon />} color='normalbutton' variant='contained'>
+        }} size='large' onClick={() => { router.push('/admin/token') }} endIcon={<ArrowRightAltIcon />} color='normalbutton' variant='contained'>
           จัดการมิเตอร์ในระบบ
         </Button>
       </Grid>

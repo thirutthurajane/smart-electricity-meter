@@ -36,7 +36,7 @@ const Page = () => {
                 <Autocomplete
                   size={'small'}
                   renderInput={(params) => <TextField placeholder={'เลือกหน่วยงานไฟฟ้า'} {...params} />}
-                  options={['การไฟฟ้าส่วนภูมิภาค', 'การไฟฟ้านครหลวง']}
+                  options={['การไฟฟ้าส่วนภูมิภาค',  'การไฟฟ้านครหลวง']}
                 />
               </CardContent>
               <CardActions
@@ -48,7 +48,7 @@ const Page = () => {
                   pb: 2,
                 }}
               >
-                <Button color='normalbutton'  variant='contained'>บันทึก</Button>
+                <Button color='normalbutton' variant='contained'>บันทึก</Button>
               </CardActions>
             </Card>
           </Grid>

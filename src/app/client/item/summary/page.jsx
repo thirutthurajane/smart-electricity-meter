@@ -16,16 +16,41 @@ import {
 } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { LineChart } from '@mui/x-charts';
 
 const Page = () => {
+
+  const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
+  const pData = [2400, 1398, 9800, 3908, 4800, 3800, 4300];
+  const xLabels = [
+    'Page A',
+    'Page B',
+    'Page C',
+    'Page D',
+    'Page E',
+    'Page F',
+    'Page G',
+  ];
+
   return (
     <Grid
       container
-      sx={{ paddingTop: 5 }}
+      sx={{ paddingTop: 5, paddingBottom: 5 }}
       direction='column'
       alignItems='center'
       justify='center'
     >
+      <Grid item xs={12}>
+        <LineChart
+          width={500}
+          height={300}
+          series={[
+            { data: pData, label: 'pv' },
+            { data: uData, label: 'uv' },
+          ]}
+          xAxis={[{ scaleType: 'point', data: xLabels }]}
+        />
+      </Grid>
       <Grid item xs={12}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs textColor='primary' value={0} aria-label='basic tabs example'>
@@ -63,8 +88,11 @@ const Page = () => {
                         น. </Typography>
                     </Grid>
                     <Grid item xs={4}>
-                      <Typography sx={{ fontWeight: 'bold', color: 'normalbutton.main', }}>( ในช่วง 7 วัน
-                        ) </Typography>
+                      <Autocomplete
+                        size={'small'}
+                        renderInput={(params) => <TextField placeholder={'เลือกช่วงเวลา'} {...params} />}
+                        options={['ในช่วง 7 วัน', 'ในช่วง 1 เดือน', 'ในช่วง 6 เดือน']}
+                      />
                     </Grid>
                   </Grid>
                 </Grid>
